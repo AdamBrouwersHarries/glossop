@@ -1,0 +1,45 @@
+name:                glossop
+version:             0.1.0.0
+synopsis:            Simple IRC bot
+description:         Please see README.md
+homepage:            https://github.com/AdamHarries/glossop#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Adam Harries
+maintainer:          adam.harries@ed.ac.uk
+copyright:           2016 Adam Harries
+category:            Web
+build-type:          Simple
+-- extra-source-files:
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Lib
+  build-depends:       base >= 4.7 && < 5
+  default-language:    Haskell2010
+
+executable glossop-exe
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , glossop
+                     , irc-client
+                     , bytestring
+                     , text
+                     , irc-ctcp
+  default-language:    Haskell2010
+
+test-suite glossop-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       base
+                     , glossop
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/AdamHarries/glossop
