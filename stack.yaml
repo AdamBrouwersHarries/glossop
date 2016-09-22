@@ -10,11 +10,12 @@
 #
 # resolver: lts-3.5
 # resolver: nightly-2015-09-21
-# resolver: ghc-7.10.2
+# resolver: ghc-7.8.4
 # resolver: ghcjs-0.1.0_ghc-7.10.2
 # resolver:
 #  name: custom-snapshot
 #  location: "./custom-snapshot.yaml"
+# allow-newer: true
 resolver: lts-7.0
 
 # User packages to be built.
@@ -37,9 +38,17 @@ resolver: lts-7.0
 # will not be run. This is useful for tweaking upstream packages.
 packages:
 - '.'
+# - location:
+#     git: git@github.com:AdamHarries/plugins.git
+#     commit: 1d518e17005da26340d9b9ff17db470ef76da232
+
 # Dependency packages to be pulled from upstream that are not in the resolver
 # (e.g., acme-missiles-0.3)
-extra-deps: [irc-client-0.4.3.0, bytestring-0.10.8.1]
+extra-deps: [ irc-client-0.4.3.0
+           , bytestring-0.10.8.1
+           # , mueval-0.9.3
+           , show-0.6
+           , hint-0.6.0 ]
 
 # Override default flag values for local packages and extra-deps
 flags: {}
